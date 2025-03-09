@@ -1,6 +1,14 @@
+import { BullModule } from '@nestjs/bullmq';
 import { Module } from '@nestjs/common';
 
 @Module({
-  imports: [],
+  imports: [
+    BullModule.forRoot({
+      connection: {
+        url: 'localhost',
+        port: 6379,
+      },
+    }),
+  ],
 })
 export class AppModule {}
