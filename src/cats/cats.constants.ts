@@ -1,4 +1,5 @@
 export const CATS = {
-  QUEUE: 'cats',
-  JOB_NAME: 'cats-job',
+  QUEUE_NAME: 'cats',
+  JOB_NAME: 'export-cats',
+  CATS_EXPORTED: 'cats.exported',
 } as const;
