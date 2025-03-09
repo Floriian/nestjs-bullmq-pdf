@@ -1,5 +1,6 @@
 import { BullModule } from '@nestjs/bullmq';
 import { Module } from '@nestjs/common';
+import { CatsModule } from './cats/cats.module';
 
 @Module({
   imports: [
@@ -9,6 +10,7 @@ import { Module } from '@nestjs/common';
         port: 6379,
       },
     }),
+    CatsModule,
   ],
 })
 export class AppModule {}
