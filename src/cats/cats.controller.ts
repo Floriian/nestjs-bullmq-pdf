@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
+import { ExportCatDto } from './dto/export-cat.dto';
 
 @Controller('cats')
 export class CatsController {
@@ -9,6 +10,11 @@ export class CatsController {
   @Get()
   async findAll() {
     return this.catsService.findAll();
+  }
+
+  @Post('export')
+  async export(@Body() exportCatDto: ExportCatDto) {
+    return this.catsService.export(exportCatDto);
   }
 
   @Post()
