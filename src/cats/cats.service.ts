@@ -58,7 +58,13 @@ export class CatsService {
       await page.setContent(html, { waitUntil: 'networkidle0' });
 
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-      const outputPath = join(__dirname, '../', 'public', `${timestamp}.pdf`);
+      const outputPath = join(
+        __dirname,
+        '../',
+        '../',
+        'public',
+        `${timestamp}.pdf`,
+      );
 
       await page.pdf({
         path: outputPath,
@@ -74,7 +80,6 @@ export class CatsService {
 
   @OnEvent(CATS.CATS_EXPORTED)
   handleCatsExportedEvent() {
-    // handle notification
-    console.log('Cats exported');
+    this.logger.log('Cats exported successfully');
   }
 }
