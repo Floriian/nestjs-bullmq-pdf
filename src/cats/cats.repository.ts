@@ -6,6 +6,7 @@ export class CatsRepository {
   private cats: Cat[] = [];
 
   async create(cat: Cat): Promise<Cat> {
+    cat.id = this.cats.length + 1;
     this.cats.push(cat);
     return cat;
   }
